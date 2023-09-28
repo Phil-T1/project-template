@@ -10,7 +10,7 @@ repos:
     -   id: check-yaml                      # Check for valid yaml
     -   id: check-json                      # Check for valid json
     -   id: check-xml                       # Check for valid xml
-    stages: [commit]
+        stages: [commit]
 
 # Format code
 -   repo: https://github.com/psf/black
@@ -59,7 +59,6 @@ repos:
         entry: coverage -m unittest discover -s tests ----fail-under=0
         types: [python]
         pass_filenames: false
-        always_run: false
         stages: [commit]
 
 # # Run unit tests
