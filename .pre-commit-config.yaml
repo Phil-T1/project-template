@@ -50,25 +50,25 @@ repos:
     -   id: pycln
         stages: [commit]
 
-# Check unittest coverage
+# Run unittests through coverage
 - repo: local
   hooks:
-    -   id: coverage-unittest
-        name: coverage-unittest
-        language: system
-        entry: coverage -m unittest discover -s tests ----fail-under=0
+    -   id: unittest
+        name: unittest
+        entry: coverage run -m unittest discover -s tests
+        language: python
         types: [python]
         pass_filenames: false
         stages: [commit]
 
-# # Run unit tests
-# - repo: local
-#   hooks:
-#   -   id: unittest
-#       name: unittest
-#       entry: python -m unittest discover -s tests
-#       language: python
-#       types: [python]
-#       pass_filenames: false
-#       always_run: false
-#       stages: [commit]
+# CHeck test coverage
+- repo: local
+  hooks:
+  -   id: test-coverage
+      name: test-coverage
+      entry:  coverage report --omit=./tests/test_*.py --fail-under=100
+      language: python
+      types: [python]
+      pass_filenames: false
+      always_run: false
+      stages: [commit]

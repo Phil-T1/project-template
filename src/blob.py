@@ -3,4 +3,4 @@
 
 def blob(blob: str) -> str:
     """Return a blob."""
-    return f"blob{blob}blob"
+    return f"blob{blob}blobblob"
