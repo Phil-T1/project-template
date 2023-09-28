@@ -59,7 +59,6 @@ repos:
         language: python
         types: [python]
         pass_filenames: false
-        always_run: false
         stages: [commit]
 
 # CHeck test coverage
@@ -71,5 +70,4 @@ repos:
       language: python
       types: [python]
       pass_filenames: false
-      always_run: false
       stages: [commit]
