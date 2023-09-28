@@ -1,0 +1,53 @@
+repos:
+
+# General checks
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 'v3.4.0'
+    hooks:
+    -   id: trailing-whitespace             # Check for trailing whitespace
+    -   id: end-of-file-fixer               # Check for new line ending
+    -   id: check-added-large-files         # Check for large files
+    -   id: check-yaml                      # Check for valid yaml
+    -   id: check-json                      # Check for valid json
+    -   id: check-xml                       # Check for valid xml
+
+# Format code
+-   repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+    - id: black
+      language_version: python3.11
+      args: [--line-length=79]
+
+# Check PEP8 style
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.1.0
+    hooks:
+    -   id: flake8
+        # E203: Whitespace before ':'
+        # F841: Unused variable
+        # W503: Line break before binary operator
+        args: [
+            --max-line-length=79,
+            '--ignore=E203,F841,W503'
+            ]
+
+# Check doc strings
+-   repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+    -   id: pydocstyle
+
+# Check for unused import statements
+-   repo: https://github.com/hadialqattan/pycln
+    rev: 'v2.1.5'
+    hooks:
+    -   id: pycln
+
+# Run unit tests
+-   id: tests
+    name: run tests
+    entry: python -m unittest discover -s tests
+    language: python
+    types: [python]
+    stages: [commit]
