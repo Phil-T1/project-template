@@ -1,4 +1,6 @@
-import coverage
+"""This module is a simple test that returns a text sring."""
+
+
 def blob(blob: str) -> str:
-    """Blobs."""
-    return "blob" + blob + "blob"
+    """Return a blob."""
+    return f"blob{blob}blob"

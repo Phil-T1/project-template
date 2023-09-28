@@ -25,11 +25,12 @@ repos:
     hooks:
     -   id: flake8
         # E203: Whitespace before ':'
+        # F401: Module imported but never used
         # F841: Unused variable
         # W503: Line break before binary operator
         args: [
             --max-line-length=79,
-            '--ignore=E203,F841,W503'
+            '--ignore=E203,F401,F841,W503'
             ]
 
 # Check doc strings
@@ -45,9 +46,12 @@ repos:
     -   id: pycln
 
 # Run unit tests
--   id: tests
-    name: run tests
-    entry: python -m unittest discover -s tests
-    language: python
-    types: [python]
-    stages: [commit]
+- repo: local
+  hooks:
+  -   id: unittest
+      name: unittest
+      entry: python -m unittest discover -s tests
+      language: python
+      types: [python]
+      pass_filenames: false
+      stages: [commit]

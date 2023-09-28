@@ -14,9 +14,6 @@ IF EXIST "venv" (
 )
 
 ECHO Installing packages into virtual environment...
-START CMD /k ".\venv\Scripts\activate.bat && pip install -r requirements.txt && exit"
-
-ECHO Installing pre-commit hooks into virtual environment...
-START CMD /k "pre-commit install && exit"
+START CMD /k ".\venv\Scripts\activate.bat && pip install -r requirements.txt && pre-commit install"
 
 PAUSE

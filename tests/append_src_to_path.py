@@ -1,3 +1,5 @@
+"""Adds the src folder to path for easier unit testing."""
+
 import sys
 import os
 
