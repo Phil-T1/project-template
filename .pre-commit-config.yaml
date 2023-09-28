@@ -58,7 +58,8 @@ repos:
         entry: coverage run -m unittest discover -s tests
         language: python
         types: [python]
-        #pass_filenames: false
+        pass_filenames: false
+        always_run: false
         stages: [commit]
 
 # CHeck test coverage
@@ -69,6 +70,6 @@ repos:
       entry:  coverage report --omit=./tests/test_*.py --fail-under=100
       language: python
       types: [python]
-      #pass_filenames: false
+      pass_filenames: false
       always_run: false
       stages: [commit]
