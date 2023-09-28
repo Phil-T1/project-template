@@ -32,7 +32,7 @@ repos:
         # W503: Line break before binary operator
         args: [
             --max-line-length=79,
-            '--ignore=E203,F401,F841,W503'
+            --ignore=E203,F401,F841,W503
             ]
         stages: [commit]
 
