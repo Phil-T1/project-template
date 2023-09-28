@@ -5,6 +5,7 @@ from src.blob import blob
 
 class TestBlob(unittest.TestCase):
     def test_blob_retuns_blobs(self):
+        """Check if 'blob' string exists in output."""
         self.assertTrue("blob" in blob("Yay!"))
 
 
